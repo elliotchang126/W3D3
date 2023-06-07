@@ -36,3 +36,12 @@ class Array
     end
 end
 
+def fib(n, memo = {})
+    return [1, 1] if n == 2
+    return [1] if n == 1
+    return [] if n <= 0
+    arr = fib(n-1, memo)
+    memo[n] = fib(n-1, memo).last + fib(n-2, memo).last unless memo.has_key?(n)
+    arr << memo[n]
+end
+
