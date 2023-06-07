@@ -19,5 +19,20 @@ def exp_2(b,n)
     end
 end
 
+class Array
 
+    def deep_dup
+        return [] if self.empty?
+        arr = []
+
+        self.each do |ele|
+            if ele.is_a?(Array)
+                arr << ele.deep_dup
+            else
+                arr << ele
+            end
+        end
+        arr
+    end
+end
 
