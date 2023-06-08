@@ -82,3 +82,18 @@ def merge_sort(arr)
     arr2 = arr[middle_index..-1]
     merge(merge_sort(arr1), merge_sort(arr2))
 end
+
+def subsets(arr)
+    return [[]] if arr == []
+    return [[], arr] if arr.is_a?(Integer)
+    # arr.map do |ele|
+    #     subsets(ele)
+    # end
+    res = subsets(arr.shift)
+    new_arr = subsets(res).map { |ele| ele << arr[0] }
+    res + new_arr
+
+    # copy = new_arr.map { |ele| ele << arr.shift}
+    # new_arr << arr.shift
+    # new_ arr = subsets(new_arr) + copy
+end
