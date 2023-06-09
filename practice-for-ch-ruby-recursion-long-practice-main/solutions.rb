@@ -89,7 +89,7 @@ def subsets(arr)
     # arr.map do |ele|
     #     subsets(ele)
     # end
-    res = subsets(arr.shift)
+    res = subsets(arr[0...-1])
     new_arr = subsets(res).map { |ele| ele << arr[0] }
     res + new_arr
 
